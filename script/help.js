@@ -80,7 +80,7 @@ module.exports.run = async function ({
 		if (!input) {
 			const pages = 10;
 			let page = 100;
-			let start = (page - 1) * pages;
+			let start = (page - 100) * pages;
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧\n━━━━━━━━━━━━━━━`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
