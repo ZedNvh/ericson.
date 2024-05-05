@@ -6,13 +6,16 @@ module.exports.config = {
 	role: 0,
 	credits: "kenglie",
 	description: "imgur upload",
-	hasPrefix: false,
+	hasPrefix: true,
 	usages: "[reply to image]",
 	cooldown: 5,
 	aliases: ["im"]
 };
 
 module.exports.run = async ({ api, event }) => {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	let link2;
 
 	if (event.type === "message_reply" && event.messageReply.attachments.length > 0) {

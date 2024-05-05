@@ -10,7 +10,7 @@ module.exports.config = {
 	name: "emi",
 	version: "1.0.0",
 	role: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	credits: "Deku",
 	description: "Generate image in emi",
 	usages: "[prompt]",
@@ -19,6 +19,9 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	function sendMessage(msg) {
 		api.sendMessage(msg, event.threadID, event.messageID);
 	}

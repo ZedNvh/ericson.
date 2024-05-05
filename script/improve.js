@@ -4,7 +4,7 @@ module.exports.config = {
 	name: "improve",
 	version: "1.0.0",
 	credits: "Samir Œ , Faith Xe",
-	hasPrefix: false,
+	hasPrefix: true,
 	role: 2,
 	description: "Improve a prompt",
 	aliases: [],
@@ -13,6 +13,9 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ event, args, api }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	const prompt = args.join(" ");
 
 	if (!prompt) {

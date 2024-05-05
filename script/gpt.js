@@ -7,11 +7,14 @@ module.exports.config = {
   role: 0,
   aliases: ["Gpt"],
   cooldown: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   usage: "",
 };
 
 module.exports.run = async function ({ api, event, args }) {
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   const question = args.join(' ');
   function sendMessage(msg) {
     api.sendMessage(msg, event.threadID, event.messageID);

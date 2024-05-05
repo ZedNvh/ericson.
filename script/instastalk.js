@@ -4,7 +4,7 @@ module.exports.config = {
 		name: "instastalk",
 		version: "1.0.0",
 		credits: "Samir Œ , Faith Xe",
-		hasPrefix: false,
+		hasPrefix: true,
 		role: 0,
 		description: "Fetch and display information about Instagram profiles.",
 		aliases: [],
@@ -13,6 +13,9 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 		const username = args[0];
 
 		if (!username) {

@@ -4,7 +4,7 @@ module.exports.config = {
 		role: 0,
 		credits: 'clifff',
 		description: '',
-		hasPrefix: false,
+		hasPrefix: true,
 		usage: '.checkweb [domain]',
 		cooldowns: 3
 };
@@ -13,6 +13,9 @@ let axios = require('axios');
 let cheerio = require('cheerio');
 
 module.exports.run = async function({ api, event, args }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 		let send = msg => api.sendMessage(msg, event.threadID, event.messageID);
 
 		axios.get('https://scam.vn/check-website?domain=' + encodeURIComponent(args[0])).then(res => {

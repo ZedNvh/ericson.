@@ -5,7 +5,7 @@ module.exports.config = {
 	credits: "Cliff",//do not change credits
 	description: "kick @tag multiple",
 	usages: "kick @mention",
-	hasPrefix: false,
+	hasPrefix: true,
 	cooldown: 5,
 	info: [
 		{

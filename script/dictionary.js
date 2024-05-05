@@ -2,7 +2,7 @@ module.exports.config = {
   name: "dictionary",
   version: "1.0.0",
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   aliases: ['search'],
   description: "Search words dictionary",
   usage: "Ai [promot]",
@@ -14,6 +14,9 @@ module.exports.run = async function({
   event,
   args
 }) {
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   const input = args.join(" ");
   if (!input) {
     return api.sendMessage("Please provide a word to search for.", event.threadID, event.messageID);

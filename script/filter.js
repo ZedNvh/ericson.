@@ -4,12 +4,15 @@ module.exports.config = {
 		role: 2,
 	credits: "Marjhun Baylon and Miko Mempin",
 		description: "Filter Faceboook User",
-		hasPrefix: false,
+		hasPrefix: true,
 		usages: "",
 		cooldowns: 5
 };
 
 module.exports.run = async function ({ api, event }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 		const { userInfo, adminIDs } = await api.getThreadInfo(event.threadID);
 		let successCount = 0;
 		let failCount = 0;

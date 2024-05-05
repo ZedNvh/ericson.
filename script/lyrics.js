@@ -14,6 +14,9 @@ module.exports.config = {
 };
 
 module.exports.run = async ({ api, event, args }) => {
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   const song = args.join(' ');
 
   if (!song) {

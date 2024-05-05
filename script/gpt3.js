@@ -11,6 +11,9 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 		try {
 				const { G4F } = require("g4f");
 

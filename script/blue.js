@@ -6,18 +6,21 @@ module.exports.config = {
 	role: 0,
 	credits: "Jonell Magallanes",
 	description: "cmd ai powered by blue",
-	hasPrefix: false,
+	hasPrefix: true,
 	usage:"blue [your content]",
 	cooldown: 5,
 };
 
 module.exports.run = async function ({ api, event, args }) {
+
 	const content = encodeURIComponent(args.join(" "));
 
 	if (!content) {
 		return api.sendMessage("Please Provide your question with blue 🔵", event.threadID, event.messageID);
 	}
-
+ api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
 	api.sendMessage("TYPE KITA WAIT KALANG...", event.threadID, event.messageID); 
 
 	const apiUrl = `https://bluerepoapislasttry.onrender.com/hercai?content=${content}`;

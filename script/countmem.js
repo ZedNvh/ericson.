@@ -9,10 +9,13 @@ module.exports.config = {
   commandCategory: "Group Chat",
   usages: "",
   cooldowns: 0,
-  hasPrefix: false
+  hasPrefix: true
 };
 
 module.exports.run = async function({ api, event, args }) {
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   try {
     // Get the current group chat information
     const groupInfo = await api.getThreadInfo(event.threadID);

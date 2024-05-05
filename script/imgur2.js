@@ -4,7 +4,7 @@ module.exports.config = {
 	name: "imgur2",
 	version: "1.0.0",
 	role: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	credits: "Eugene Aguilar",
 	description: "upload to imgur",
 	usages: "imgur reply image,video,png,jpg",
@@ -33,6 +33,9 @@ class Imgur {
 }
 
 module.exports.run = async function ({ api, event }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	const imgur = new Imgur();
 	const array = [];
 

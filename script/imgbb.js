@@ -5,13 +5,16 @@ module.exports.config = {
 	version: "1.0.0",
 	role: 0,
 	credits: "cliff",
-	hasPrefix: false,
+	hasPrefix: true,
 	description: "Upload an image to imgbb",
 	usage: "{pn} <attached image>",
 	cooldowns: 5
 };
 
 module.exports.run = async function ({ api, event }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	try {
 		let imageUrl;
 		if (event.type === "message_reply" && event.messageReply.attachments.length > 0) {

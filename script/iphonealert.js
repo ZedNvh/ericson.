@@ -11,6 +11,9 @@ module.exports.config = {
 };
 
 module.exports.run = async ({ api, event, args }) => {
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   const axios = require('axios');
   const fs = require('fs-extra');
   try { 

@@ -4,7 +4,7 @@ module.exports.config = {
 	name: "listfriend",
 	version: "1.0.0",
 	role: 2,
-	hasPrefix: false,
+	hasPrefix: true,
 	credits: "cliff",
 	description: "View friends information/Delete friends by replying",
 	usages: "",
@@ -12,6 +12,9 @@ module.exports.config = {
 };
 
 module.exports.handleReply = async function ({ api, args, Users, event }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	const { threadID, messageID, senderID } = event;
 	const reply = handleReply.find(reply => reply.author === senderID);
 	if (!reply) return;
