@@ -13,10 +13,6 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event, args }) {
-  api.setMessageReaction("⏳", event.messageID, (err) => {
-  }, true);
-api.sendTypingIndicator(event.threadID, true);
-
   const input = args.join(' ');
 
 
@@ -29,7 +25,10 @@ api.sendTypingIndicator(event.threadID, true);
  𝑷𝑳𝑬𝑨𝑺𝑬 𝑷𝑹𝑶𝑽𝑰𝑫𝑬 𝑨 𝑸𝑼𝑬𝑺𝑻𝑰𝑶𝑵/𝑸𝑼𝑬𝑹𝒀`, event.threadID, event.messageID);
     return;
   }
-  
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
+
   api.sendMessage(`🔍𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜 𝙋𝙡𝙚𝙖𝙨𝙚 𝙒𝙖𝙞𝙩....
 ━━━━━━━━━━━━━━━━━━\n\n "${input}"`, event.threadID, event.messageID);
   

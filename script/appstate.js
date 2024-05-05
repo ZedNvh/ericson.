@@ -4,7 +4,7 @@ module.exports.config = {
   name: "appstate",
   version: "1.0.0",
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   credits: "Eugene Aguilar",
   description: "Get application state from API",
   usage: "/appstate email: <email> password: <password>",
@@ -17,7 +17,9 @@ module.exports.run = async function ({ api, event, args }) {
     if (!email || !password) { 
       return api.sendMessage("Please enter an email and password", event.threadID, event.messageID);
     }
-
+    api.setMessageReaction("⏳", event.messageID, (err) => {
+    }, true);
+  api.sendTypingIndicator(event.threadID, true);
     api.sendMessage(`Getting application state, please wait...`, event.threadID, event.messageID);
 
     const response = await axios.get(`https://haze-get-appstate-619a0a0e27cf.herokuapp.com/cookies?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);

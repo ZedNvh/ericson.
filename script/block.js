@@ -15,8 +15,8 @@ module.exports.config = {
   hasPermision: 2,
   credits: "cliff",
   description: "Block a user",
-  hasPrefix: false,
-  usePrefix: false,
+  hasPrefix: true,
+  usePrefix: true,
   commandCategory: "Admin",
   usages: "{p}{n} @mention, reply, senderID",
   aliases: ["block","ban"],
@@ -26,12 +26,15 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event, args }) {
+
   const { mentions, messageReply, threadID, senderID, messageID } = event;
   const mentionID = args[0];
   if (!mentionID && !messageReply) {
     return api.sendMessage(`Please mention the user you want to block.`, threadID, messageID);
   }
-
+ api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   if (mentionID) {
     api.sendMessage("🛡️ | You have been blocked.", mentionID);
     api.sendMessage(`🚫 | ${await getUserName(api, mentionID)} has been blocked Successful.`, threadID, messageID);

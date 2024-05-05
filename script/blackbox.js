@@ -4,7 +4,7 @@ module.exports.config = {
 	name: "blackbox",
 	version: "9",
 	role: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	credits: "Eugene Aguilar",
 	description: "AI powered by blackbox",
 	aliases: ["black"],
@@ -12,6 +12,9 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({api, event, args}) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	if (!args[0]) {
 		api.sendMessage("Please provide a question.", event.threadID, event.messageID);
 		return;

@@ -6,13 +6,16 @@ module.exports.config = {
     role: 0,
     credits: "churchill",
     description: "Get a random Bible verse.",
-    hasPrefix: false,
+    hasPrefix: true,
     aliases: ["bibleverse", "randombibbleverse"],
     usage: "",
     cooldown: 5,
 };
 
 module.exports.run = async function({ api, event }) {
+    api.setMessageReaction("⏳", event.messageID, (err) => {
+    }, true);
+  api.sendTypingIndicator(event.threadID, true);
     try {
         api.sendMessage("⏱️ | Fetching a random Bible verse, please wait...", event.threadID);
 
