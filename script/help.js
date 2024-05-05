@@ -82,9 +82,9 @@ module.exports.run = async function ({
 			let page = 1;
 			let start = (page - 1) * pages;
 			let end = start + pages;
-			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧\n╭─∪∪───────────⟡`;
+			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧\n━━━━━━━━━━━━━━━`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
-				helpMessage += `\n├ ✧『 ${i + 1} 』  ${prefix}${commands[i]}\n├──────────────⟡\t`;
+				helpMessage += `\n╭┈ ❒ [ ${prefix} ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰   ⁞ ❏. ${i + 1}: ${commands[i]}\n━━━━━━━━━━━━━━━\n`;
 			}
 			helpMessage += '\n\n====『𝗙𝗘𝗔𝗧𝗨𝗥𝗘 𝗟𝗜𝗦𝗧』====\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n\n';
 			eventCommands.forEach((eventCommand, index) => {
@@ -94,7 +94,7 @@ module.exports.run = async function ({
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
-			const pages = 10;
+			const pages = 0;
 			let start = (page - 2) * pages;
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
