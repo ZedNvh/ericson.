@@ -394,7 +394,7 @@ async function accountLogin(state, enableCommands = [], prefix, admin = []) {
 							const { threadID } = event;
 
 					if (event.logMessageData.addedParticipants && Array.isArray(event.logMessageData.addedParticipants) && event.logMessageData.addedParticipants.some(i => i.userFbId == userid)) {
-					api.changeNickname(`》 ${prefix} 《 ❃ ➠ 𝒄𝒉𝒖𝒓𝒄𝒉𝒊𝒍𝒍𝒃𝒐𝒕`, threadID, userid);
+					api.changeNickname(`》 ${prefix} 《 ❃ ➠ CHATBOTV5`, threadID, userid);
 
 let gifUrls = [
 	'https://i.imgur.com/209z0iM.mp4',
@@ -419,7 +419,7 @@ axios.get(gifUrl, { responseType: 'arraybuffer' })
 				fs.writeFileSync(gifPath, response.data); 
 				return api.sendMessage("𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗜𝗡𝗚...", event.threadID, () => 
 						api.sendMessage({ 
-								body:`🔴🟢🟡\n\n✅ 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦! \n➭ Bot Prefix: ${prefix}\n➭ Admin: ‹𝐂𝐡𝐮𝐫𝐜𝐡𝐢𝐥𝐥 𝐀𝐛𝐢𝐧𝐠›\n➭ Facebook: ‹https://www.facebook.com/Churchill.Dev4100›\n➭ Use ${prefix}help to view command details\n➭ Added bot at: ⟨ ${time} ⟩〈 ${thu} 〉`, 
+								body:`✅ 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗦𝗨𝗖𝗖𝗘𝗦! \n➭ Bot Prefix: ${prefix}\n➭ Autobot owner: zach\n➭ Facebook: https://www.facebook.com/zachary.pnaveax\n➭ Use ${prefix}help to view command details\n➭ Added bot at: ⟨ ${time} ⟩〈 ${thu} 〉`, 
 								attachment: fs.createReadStream(gifPath)
 						}, event.threadID)
 				);
@@ -775,7 +775,7 @@ const yawa = lubot[Math.floor(Math.random() * lubot.length)];
 						}
 					}
 					if (event.body && !command && event.body?.toLowerCase().startsWith(prefix.toLowerCase())) {
-						api.sendMessage(`Invalid command please use ${prefix}help to see the list of available commands.`, event.threadID, event.messageID);
+						api.sendMessage(`╭┈ ❒ [ ! ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰┈➤ 𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝗇𝗈𝗍 𝖿𝗈𝗎𝗇𝖽\n╰┈➤ 𝖴𝗌𝖾 !𝘩𝘦𝘭𝘱 𝗍𝗈 𝗏𝗂𝖾𝗐 𝖺𝗅𝗅 𝖼𝗈𝗆𝗆𝖺𝗇𝖽𝗌.`, event.threadID, event.messageID);
 						return;
 					}
 if (event.body && !command && event.body?.toLowerCase().startsWith(prefix.toLowerCase())) {
