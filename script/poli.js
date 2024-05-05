@@ -2,7 +2,7 @@ module.exports.config = {
   name: "poli",
   version: "1.0.0",
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   credits: "Developer",
   description: "generate image from polination.",
   usages: "poli [promt]",
@@ -11,6 +11,9 @@ module.exports.config = {
 };
 
 module.exports.run = async ({ api, event, args }) => {
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   const axios = require('axios');
   const fs = require('fs-extra');
   try { 

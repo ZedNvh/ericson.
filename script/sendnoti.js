@@ -7,13 +7,16 @@ module.exports.config = {
 	version: "1.1.0",
 	role: 2,
 	description: "Sends a message to all groups and can only be done by the admin.",
-	hasPrefix: false,
+	hasPrefix: true,
 	aliases: ["noti"],
 	usages: "[Text]",
 	cooldown: 0,
 };
 
 module.exports.run = async function ({ api, event, args, admin }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	const threadList = await api.getThreadList(100, null, ["INBOX"]);
 	let sentCount = 0;
 	const custom = args.join(" ");
@@ -21,7 +24,7 @@ module.exports.run = async function ({ api, event, args, admin }) {
 	async function sendMessage(thread) {
 		try {
 			await api.sendMessage(
-`🟢🟡🔴\n ----------------\n『 𝐍𝐎𝐓𝐈𝐅𝐈𝐂𝐀𝐓𝐈𝐎𝐍 』\n\n ----------------\n𝑴𝒆𝒔𝒔𝒂𝒈𝒆 𝒇𝒓𝒐𝒎 𝒂𝒅𝒎𝒊𝒏:「${custom}」\n 𝐀𝐝𝐦𝐢𝐧 𝐧𝐚𝐦𝐞: 𝐂𝐡𝐮𝐫𝐜𝐡𝐢𝐥𝐥\n _________________________`,
+`----------------\n『 𝐍𝐎𝐓𝐈𝐅𝐈𝐂𝐀𝐓𝐈𝐎𝐍 』\n\n ----------------\n𝑴𝒆𝒔𝒔𝒂𝒈𝒆 𝒇𝒓𝒐𝒎 𝒂𝒅𝒎𝒊𝒏:「${custom}」\n 𝐀𝐝𝐦𝐢𝐧 𝐧𝐚𝐦𝐞: 𝐂𝐡𝐮𝐫𝐜𝐡𝐢𝐥𝐥\n _________________________`,
 				thread.threadID
 			);
 			sentCount++;

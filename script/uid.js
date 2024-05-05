@@ -3,7 +3,7 @@ module.exports.config = {
 	role: 0,
 	credits: "Mirai Team",
 	description: "Get the user's Facebook UID.",
-	hasPrefix: false,
+	hasPrefix: true,
 	usages: "{p}uid {p}uid @mention",
 	cooldown: 5,
 	aliases: ["id","ui"]

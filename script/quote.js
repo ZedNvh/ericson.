@@ -3,7 +3,7 @@ module.exports.config = {
   name: "quote",
   version: "1.0.0",
   role: 0,
-  hasPrefix: false,
+  hasPrefix: true,
   description: "Get a random inspirational quote.",
   usage: "quote",
   credits: "Developer",
@@ -17,6 +17,9 @@ module.exports.run = async ({
     threadID,
     messageID
   } = event;
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   try {
     const response = await axios.get('https://api.quotable.io/random');
     const {

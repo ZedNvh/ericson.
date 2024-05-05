@@ -6,7 +6,7 @@ module.exports.config = {
 	role: 0,
 	aliases: ['m'],
 	cooldown: 0,
-	hasPrefix: false,
+	hasPrefix: true,
 	usage: "",
 };
 module.exports.run = async function({

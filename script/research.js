@@ -13,6 +13,9 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args }) {
+  api.setMessageReaction("⏳", event.messageID, (err) => {
+  }, true);
+api.sendTypingIndicator(event.threadID, true);
   const { threadID, messageID } = event;
   const query = args.join(' ');
 

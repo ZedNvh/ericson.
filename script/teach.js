@@ -5,7 +5,7 @@ module.exports.config = {
 	version: "1",
 	role: 0,
 	credits: "Grey | api by jerome",
-	hasPrefix: false,
+	hasPrefix: true,
 	description: "Teach Simsimi",
 	usage: "Teach",
 	cooldown: 0

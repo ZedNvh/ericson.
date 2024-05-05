@@ -9,10 +9,13 @@ module.exports.config = {
 	description: "search periodical table",
 	usage: "[element]",
 	cooldown: 5,
-	hasPrefix: false,
+	hasPrefix: true,
 };
 
 module.exports.run = async function({ api, event, args }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 		if (!args[0]) return api.sendMessage("Please provide an element symbol, name, or atomic number.", event.threadID);
 
 		let elementQuery = args.join(" ");

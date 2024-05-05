@@ -8,12 +8,15 @@ module.exports.config = {
 		role: 0,
 		credits: "joshua deku",
 		description: "Play and Download music from Spotify",
-		hasPrefix: false,
+		hasPrefix: true,
 		cooldown: 5,
 		aliases: ["spt"]
 };
 
 module.exports.run = async function ({ api, event, args }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 		try {
 				const { spotify, spotifydl } = require("betabotz-tools");
 				let q = args.join(" ");

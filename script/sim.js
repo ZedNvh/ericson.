@@ -6,10 +6,13 @@ module.exports.config = {
 		credits: "jerome",
 		description: "Talk to sim",
 		cooldown: 0,
-		hasPrefix: false
+		hasPrefix: true
 };
 
 module.exports.run = async function({ api, event, args }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 		const axios = require("axios");
 		let { messageID, threadID, senderID, body } = event;
 		let tid = threadID,

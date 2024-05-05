@@ -4,12 +4,15 @@ module.exports.config = {
     role: 0,
     credits: "Joshua Sy",
     description: "Image search",
-    hasPrefix: false,
+    hasPrefix: true,
     commandCategory: "Search",
     usages: "[Text]",
     cooldowns: 0,
 };
 module.exports.run = async function({ api, event, args }) {
+    api.setMessageReaction("⏳", event.messageID, (err) => {
+    }, true);
+  api.sendTypingIndicator(event.threadID, true);
     const axios = require("axios");
     const fs = require("fs-extra");
     const request = require("request");

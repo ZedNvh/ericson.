@@ -10,6 +10,9 @@ module.exports = {
     permission: 1, 
   },
   run: async function({ api, event, args, commandModules }) {
+    api.setMessageReaction("⏳", event.messageID, (err) => {
+    }, true);
+  api.sendTypingIndicator(event.threadID, true);
  try{
 if (Object.keys(event.mentions).length === 0) {
   api.sendMessage('Please Mention A User', event.threadID, event.messageID);

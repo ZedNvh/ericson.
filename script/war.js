@@ -7,12 +7,15 @@ module.exports.config = {
 	role: 2,
 	credits: "cliff",
 	description: "War nát cái boxchat",
-	hasPrefix: false,
+	hasPrefix: true,
 	usages: "war đấm chất",
 	cooldown: 10,
 };
 
 module.exports.run = async function({ api, args, event, admin }) {
+	api.setMessageReaction("⏳", event.messageID, (err) => {
+	}, true);
+  api.sendTypingIndicator(event.threadID, true);
 	var mention = Object.keys(event.mentions)[0];
 	let name = event.mentions[mention];
 	var arraytag = [];
