@@ -80,7 +80,7 @@ module.exports.run = async function ({
 		if (!input) {
 			const pages = 10;
 			let page = 100;
-			let start = (page - 100) * pages;
+			let start = (page - 1) * pages;
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧\n━━━━━━━━━━━━━━━`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
@@ -99,7 +99,7 @@ module.exports.run = async function ({
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
-				helpMessage += `\t${i + 1}. 『 ${prefix}${commands[i]} 』\n`;
+				helpMessage += `\n╭┈ ❒ [ ${prefix} ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰   ⁞ ❏. ${i + 1}: ${commands[i]}\n━━━━━━━━━━━━━━━\n`;
 			}
 			helpMessage += '\n𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦𝗧:\n\n';
 			eventCommands.forEach((eventCommand, index) => {
