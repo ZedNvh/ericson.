@@ -86,16 +86,16 @@ module.exports.run = async function ({
 			for (let i = start; i < Math.min(end, commands.length); i++) {
 				helpMessage += `\n╭┈ ❒ [ ${prefix} ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰   ⁞ ❏. ${i + 1}: ${commands[i]}\n━━━━━━━━━━━━━━━\n`;
 			}
-			helpMessage += '\n\n====『𝗙𝗘𝗔𝗧𝗨𝗥𝗘 𝗟𝗜𝗦𝗧』====\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n\n';
+			helpMessage += '\n𝗙𝗘𝗔𝗧𝗨𝗥𝗘 𝗟𝗜𝗦𝗧\n\n';
 			eventCommands.forEach((eventCommand, index) => {
-			helpMessage += `╭─────────────────╮\n |\t『 ${index + 1}.』  ${prefix}${eventCommand}\n╰─────────────────╯ \n\n`;
+			helpMessage += `━━━━━━━━━━━━━━━\n ${index + 1}  ❏. ${prefix}${eventCommand}\n━━━━━━━━━━━━━━━\n\n`;
 			});
 			helpMessage += `𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
 			const pages = 0;
-			let start = (page - 2) * pages;
+			let start = (page - 1) * pages;
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
