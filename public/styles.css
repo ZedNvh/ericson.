@@ -71,7 +71,7 @@ body {
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #00ff11, 0 0 0.8rem #1F51FF, 0 0 2.8rem #ff009d, inset 0 0 1.3rem #b301ff;
+    box-shadow: 0 0 .2rem #9f16ab, 0 0 .2rem #ff00d4, 0 0 2rem #00ff11, 0 0 0.8rem #1F51FF, 0 0 2.8rem #ff009d, inset 0 0 1.3rem #b301ff;
     margin-top: 20px;
     margin-bottom: 20px;
     outline: 2px solid #fff;
@@ -107,13 +107,13 @@ label {
 
 .btn-primary {
     background-color: #ff0000;
-    border: 1px solid #007bff;
+    border: 1px solid #00ff33;
     color: #261a1a;
 }
 
 .btn-primary:hover {
-    background-color: #76d674;
-    border: 1px solid #0056b3;
+    background-color: #ff0000;
+    border: 1px solid #00ff40;
 }
 
 .success-message {
@@ -175,7 +175,7 @@ label {
 
 .form-check:hover {
     background-color: #f5f5;
-    border-color: #f8f8f8;
+    border-color: #ff00bf;
 }
 
 .form-check-input {
