@@ -95,7 +95,7 @@ module.exports.run = async function ({
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
 			let page = 1;
-			let start = (page - 1) * pages;
+			let start = (page - 3) * pages;
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
