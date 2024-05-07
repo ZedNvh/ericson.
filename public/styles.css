@@ -71,7 +71,7 @@ body {
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #1F51FF, 0 0 0.8rem #1F51FF, 0 0 2.8rem #1F51FF, inset 0 0 1.3rem #1F51FF;
+    box-shadow: 0 0 .2rem #fff, 0 0 .2rem #fff, 0 0 2rem #00ff11, 0 0 0.8rem #1F51FF, 0 0 2.8rem #ff009d, inset 0 0 1.3rem #b301ff;
     margin-top: 20px;
     margin-bottom: 20px;
     outline: 2px solid #fff;
@@ -100,13 +100,13 @@ label {
     min-height: 150px;
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #00ffff;
+    border: 1px solid #ea00ff;
     border-radius: 5px;
     resize: none;
 }
 
 .btn-primary {
-    background-color: #00ff00;
+    background-color: #ff0000;
     border: 1px solid #007bff;
     color: #261a1a;
 }
