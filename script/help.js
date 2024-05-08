@@ -59,7 +59,7 @@ module.exports.config = {
 	aliases: ['help'],
 	description: "Beginner's guide",
 	usage: "Help [page] or [command]",
-	credits: 'Develeoper',
+	credits: 'zach',
 };
 
 module.exports.run = async function ({
@@ -94,8 +94,8 @@ module.exports.run = async function ({
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
-			let page = 1;
-			let start = (page - 3) * pages;
+			const pages = 100;
+			let start = (page - 2) * pages;
 			let end = start + pages;
 			let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
 			for (let i = start; i < Math.min(end, commands.length); i++) {
@@ -121,14 +121,14 @@ module.exports.run = async function ({
 					cooldown,
 					hasPrefix
 				} = command;
-				const roleMessage = role !== undefined ? (role === 0 ? '❏. Permission: user' : (role === 1 ? '❏. Permission: admin' : (role === 2 ? '❏. Permission: thread Admin' : (role === 3 ? '❏. Permission: super Admin' : '')))) : '';
-				const aliasesMessage = aliases.length ? `❏. Aliases: ${aliases.join(', ')}\n` : '';
+				const roleMessage = role !== undefined ? (role === 0 ? '➛ Permission: user' : (role === 1 ? '➛ Permission: admin' : (role === 2 ? '➛ Permission: thread Admin' : (role === 3 ? '➛ Permission: super Admin' : '')))) : '';
+				const aliasesMessage = aliases.length ? `➛ Aliases: ${aliases.join(', ')}\n` : '';
 				const descriptionMessage = description ? `Description: ${description}\n` : '';
-				const usageMessage = usage ? `❏. Usage: ${usage}\n` : '';
-				const creditsMessage = credits ? `❏. Credits: ${credits}\n` : '';
-				const versionMessage = version ? `❏. Version: ${version}\n` : '';
-				const cooldownMessage = cooldown ? `❏. Cooldown: ${cooldown} second(s)\n` : '';
-				const message = ` 「 COMMAND 」\n\n❏. Name: ${name}\n${versionMessage}${roleMessage}\n${aliasesMessage}${descriptionMessage}${usageMessage}${creditsMessage}${cooldownMessage}`;
+				const usageMessage = usage ? `➛ Usage: ${usage}\n` : '';
+				const creditsMessage = credits ? `➛ Credits: ${credits}\n` : '';
+				const versionMessage = version ? `➛ Version: ${version}\n` : '';
+				const cooldownMessage = cooldown ? `➛ Cooldown: ${cooldown} second(s)\n` : '';
+				const message = ` 「 Command 」\n\n➛ Name: ${name}\n${versionMessage}${roleMessage}\n${aliasesMessage}${descriptionMessage}${usageMessage}${creditsMessage}${cooldownMessage}`;
 				api.sendMessage(message, event.threadID, event.messageID);
 			} else {
 				api.sendMessage('Command not found.', event.threadID, event.messageID);
