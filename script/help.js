@@ -105,7 +105,7 @@ module.exports.run = async function ({
 			eventCommands.forEach((eventCommand, index) => {
 				helpMessage += `━━━━━━━━━━━━━━━\n ${index + 1}  ❏. ${prefix}${eventCommand}\n━━━━━━━━━━━━━━━\n\n`;
 			});
-			helpMessage += `\nPage ${page} of ${Math.ceil(commands.length / pages)}`;
+			helpMessage += `𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
 			api.sendMessage(helpMessage, event.threadID, event.messageID);
 		} else {
 			const command = [...Utils.handleEvent, ...Utils.commands].find(([key]) => key.includes(input?.toLowerCase()))?.[1];
