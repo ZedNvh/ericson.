@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const login = require('./fca-project-orion-main/index');
+const login = require('./fca-project-orion/index');
 const express = require('express');
 const app = express();
 const chalk = require('chalk');
