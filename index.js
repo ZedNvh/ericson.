@@ -529,7 +529,7 @@ const yawa = lubot[Math.floor(Math.random() * lubot.length)];
 
 									axios({
 											method: "GET",
-											url: `https://insta-downloader-ten.vercel.app/insta?url=${encodeURIComponent(url)}`
+											url: `https://jonellccapisprojectv2-a62001f39859.herokuapp.com/api/fbdl?url=${encodeURIComponent(url)}`
 									})
 									.then(async (res) => {
 											if (res.data.url) {
