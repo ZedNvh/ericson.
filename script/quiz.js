@@ -9,7 +9,7 @@ module.exports.config = {
     cooldowns: 6,
   };
 
-module.exports.handleReaction = ({ api, event, handleReaction }) => {
+module.exports.setMessageReaction = ({ api, event, setMessageReaction }) => {
 	if (!event.userID == handleReaction.author) return;
 	let response = "";
 	if (event.reaction != "👍" && event.reaction != "😢") return;
