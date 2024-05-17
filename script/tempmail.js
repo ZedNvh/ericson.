@@ -18,7 +18,7 @@ module.exports.config = {
 		credits: "Deku",
 		description: "Generate temporary email (auto get inbox)",
 		usages: "[tempmail]",
-		hasPrefix: true,
+		hasPrefix: false,
 		cooldown: 5,
 		aliases: ["temp"]
 };
