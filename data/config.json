@@ -3,7 +3,7 @@
     "masterKey": {
       "admin": [],
       "devMode": false,
-      "database": false,
+      "database": true,
 			"restartTime": 9999999
     },
     "fcaOption": {
