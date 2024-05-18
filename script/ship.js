@@ -1,14 +1,13 @@
 module.exports.config = {
     name: "ship",
-    version: "2.0.4",
-    role: 0,
+    version: "2.2",
+    hasPermssion: 0,
     credits: "zach",
-    description: "ship with your crush",
-    aliases: ["ship"],
-   cooldown: 20,
-   hasPrefix: true,
-       usage: "",
-   };
+    description: "( ship𝚒 )",
+    commandCategory: "𝚗𝚘 𝚙𝚛𝚎𝚏𝚒𝚡",
+    usages: "(ih )",
+    cooldowns: 20,
+  };
 
   module.exports.run = async function({ api, args, Users, event}) {
   const axios=global["nodemodule"]["axios"];

@@ -1,15 +1,15 @@
 module.exports.config = {
     name: "shiprandom",
-    version: "2.0.4",
-    role: 0,
+    version: "2.2",
+    hasPermssion: 0,
     credits: "zach",
-    description: "ship random",
-    aliases: ["ship"],
-   cooldown: 20,
-   hasPrefix: true,
-       usage: "",
-   };
-  module.exports.run = async function({ api, event,Threads, Users }) {
+    description: "( ship𝚒 )",
+    commandCategory: "𝚗𝚘 𝚙𝚛𝚎𝚏𝚒𝚡",
+    usages: "(ih )",
+    cooldowns: 2-,
+  };
+  
+module.exports.run = async function({ api, event,Threads, Users }) {
           const axios = global.nodemodule["axios"];
           const fs = global.nodemodule["fs-extra"];
   
@@ -42,4 +42,4 @@ module.exports.config = {
   
           var msg = {body: `Cooldown: 20s\n🥰Successful pairing!\n💌Wish you two a hundred years of happiness\n💕Double ratio: ${tle}%\n`+namee+" "+"💓"+" "+name, mentions: arraytag, attachment: imglove}
           return api.sendMessage(msg, event.threadID, event.messageID)
-  }
+  };

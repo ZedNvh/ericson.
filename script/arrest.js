@@ -1,15 +1,15 @@
 module.exports.config = {
     name: "arrest",
-    version: "2.0.4",
-    role: 0,
+    version: "2.2",
+    hasPermssion: 0,
     credits: "zach",
-    description: "arrest your friend",
-    aliases: ["arrest"],
-   cooldown: 10,
-   hasPrefix: true,
-       usage: "",
-   };
-module.exports.onLoad = async() => {
+    description: "( arrest your friend )",
+    commandCategory: "𝚗𝚘 𝚙𝚛𝚎𝚏𝚒𝚡",
+    usages: "(ih )",
+    cooldowns: 10,
+  };
+
+module.exports.run = async() => {
     const { resolve } = global.nodemodule["path"];
     const { existsSync, mkdirSync } = global.nodemodule["fs-extra"];
     const { downloadFile } = global.utils;

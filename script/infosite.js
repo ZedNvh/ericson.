@@ -3,16 +3,15 @@
 //var b = res.data.description;
 //var c = res.data.image;
 module.exports.config = {
-    name: "infosite",
-    version: "2.0.4",
-    role: 0,
-    credits: "zach",
-    description: "information",
-    aliases: ["info"],
-   cooldown: 0,
-   hasPrefix: true,
-       usage: "",
-   };
+  name: "infosite",
+  version: "2.2",
+  hasPermssion: 0,
+  credits: "zach",
+  description: "( info)",
+  commandCategory: "𝚗𝚘 𝚙𝚛𝚎𝚏𝚒𝚡",
+  usages: "(ih )",
+  cooldowns: 2,
+};
   module.exports.run = async (
   {
     api,
