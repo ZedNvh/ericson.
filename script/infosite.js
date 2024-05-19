@@ -37,10 +37,10 @@ module.exports.config = {
           api.sendMessage(
           {
             body: `Name: ${a}\n\nDescription: ${b}\n\nRelease Date: ${date}\n\nUrl: ${d}`,
-            attachment: fs.createReadStream(__dirname + `/cache/juswa.png`)
-          }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/juswa.png`), event.messageID);
+            attachment: fs.createReadStream(__dirname + `/cache2/juswa.png`)
+          }, event.threadID, () => fs.unlinkSync(__dirname + `/cache2/juswa.png`), event.messageID);
         };
-        request(encodeURI(c)).pipe(fs.createWriteStream(__dirname + `/cache/juswa.png`)).on("close", callback);
+        request(encodeURI(c)).pipe(fs.createWriteStream(__dirname + `/cache2/juswa.png`)).on("close", callback);
       })
     }
   }
