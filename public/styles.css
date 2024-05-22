@@ -4,7 +4,7 @@ body {
     font-family: 'Poppins', BlinkMacSystemFont, sans-serif;
     overflow-y: auto; /* Enable vertical scrolling */
     overflow-x: hidden; /* Hide horizontal scrollbar */
-    background: linear-gradient(315deg, rgb(30, 255, 10) 3%, rgb(255, 0, 255), rgba(48, 238, 226, 1) 68%, rgba(255, 25, 25, 1) 98%);
+    background: linear-gradient(315deg, rgb(0, 0, 0) 3%, rgb(255, 0, 255), rgba(48, 238, 226, 1) 68%, rgb(239, 239, 239) 98%);
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
@@ -71,7 +71,7 @@ body {
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 0 .2rem #9f16ab, 0 0 .2rem #ff00d4, 0 0 2rem #00ff11, 0 0 0.8rem #1F51FF, 0 0 2.8rem #ff009d, inset 0 0 1.3rem #b301ff;
+    box-shadow: 0 0 .2rem #000000, 0 0 .2rem #ff00d4, 0 0 2rem #00ff11, 0 0 0.8rem #1F51FF, 0 0 2.8rem #000000, inset 0 0 1.3rem #3e81ef;
     margin-top: 20px;
     margin-bottom: 20px;
     outline: 2px solid #fff;
@@ -225,7 +225,7 @@ video {
     margin-bottom: 20px;
     cursor: default;
     outline: 2px solid #fff;
-    background: linear-gradient(135deg, aqua, rgb(0, 255, 0), rgb(255, 255, 0), orange, red, rgb(255, 0, 234));
+    background: linear-gradient(135deg, aqua, rgb(0, 255, 0), rgb(255, 255, 0), rgb(0, 0, 0), rgb(239, 239, 239), rgb(255, 0, 234));
     border-radius: 10px;
     animation: animate 1.5s linear infinite;
     border: 2px solid transparent;
