@@ -12,12 +12,12 @@ module.exports.config = {
 };
 
 module.exports.run = function ({ api, event, prefix, admin }) {
-        if (event.type === 'message') {
-            const message = event.body.trim();
+    if (event.type === 'message') {
+        const message = event.body.trim();
 
-            if (message.startsWith(prefix) || message.startsWith(Prefix) || message.startsWith(anong prefix)) {
-                const response = 🌐 System Current prefix is [ ${prefix} ];
-                api.shareContact(response, api.getCurrentUserID(), event.threadID)
-            }
+        if (message.startsWith(prefix)) {
+            const response = `🌐 System Current prefix is [ ${prefix} ]`;
+            api.sendMessage(response, event.threadID);
         }
-    };
+    }
+};

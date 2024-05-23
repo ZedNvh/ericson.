@@ -15,12 +15,11 @@ module.exports.run = async function({ api, event }) {
             const senderID = event.messageReply.senderID;
             return api.sendMessage(senderID.toString(), event.threadID);
         } else {
-            return api.shareContact(event.senderID.toString(), event.senderID, event.threadID, event.messageID);
+            return api.shareContact(event.senderID.toString(), event.threadID, event.messageID);
         }
     } else {
         for (const mentionID in event.mentions) {
-            const mentionName = event.mentions[mentionID];
-            api.shareContact(`${mentionName.replace('@', '')}: ${mentionID}`, event.threadID);
+            api.shareContact(mentionID.toString(), event.threadID, event.messageID);
         }
     }
 };
