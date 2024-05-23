@@ -12,12 +12,13 @@ module.exports.config = {
 };
 
 module.exports.run = function ({ api, event, prefix, admin }) {
-    if (event.type === 'message') {
-        const message = event.body.trim();
-
-        if (message.startsWith(prefix)) {
-            const response = `🌐 System Current prefix is [ ${prefix} ]`;
-            api.sendMessage(response, event.threadID);
+    var { threadID, messageID } = event;
+    if (event.body.indexOf("prefix")==0 || (event.body.indexOf("Prefix")==0 || (event.body.indexOf("Ano prefix")==0 || (event.body.indexOf("ano prefix")==0)))) {
+      const moment = require("moment-timezone");
+      var gio = moment.tz("Asia/Manila").format("HH:mm:ss || D/MM/YYYY");
+      var msg = {
+          body: `${prefix}`
         }
+        api.sendMessage(msg, threadID, messageID);
+      }
     }
-};

@@ -18,25 +18,25 @@ module.exports.run = async function({ api, event, args }) {
 
   
   if (!input) {
-    api.sendMessage(`𝑯𝑬𝑳𝑳𝑶 𝑰𝑴 𝑨𝑰 ✨ 
+    api.shareContact(`𝑯𝑬𝑳𝑳𝑶 𝑰𝑴 𝑨𝑰 
 
 ━━━━━━━━━━━━━━━
 
- 𝑷𝑳𝑬𝑨𝑺𝑬 𝑷𝑹𝑶𝑽𝑰𝑫𝑬 𝑨 𝑸𝑼𝑬𝑺𝑻𝑰𝑶𝑵/𝑸𝑼𝑬𝑹𝒀`, event.threadID, event.messageID);
+ 𝑷𝑳𝑬𝑨𝑺𝑬 𝑷𝑹𝑶𝑽𝑰𝑫𝑬 𝑨 𝑸𝑼𝑬𝑺𝑻𝑰𝑶𝑵/𝑸𝑼𝑬𝑹𝒀`,api.getCurrentUserID(), event.threadID, event.messageID);
     return;
   }
   api.setMessageReaction("⏳", event.messageID, (err) => {
   }, true);
 api.sendTypingIndicator(event.threadID, true);
 
-  api.sendMessage(`🔍𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜 𝙋𝙡𝙚𝙖𝙨𝙚 𝙒𝙖𝙞𝙩....
-━━━━━━━━━━━━━━━━━━\n\n "${input}"`, event.threadID, event.messageID);
+  api.shareContact(`🔍𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜 𝙋𝙡𝙚𝙖𝙨𝙚 𝙒𝙖𝙞𝙩....
+━━━━━━━━━━━━━━━━━━\n\n "${input}"`,api.getCurrentUserID(),event.threadID, event.messageID);
   
   try {
     const { data } = await axios.get(`https://openaikey-x20f.onrender.com/api?prompt=${encodeURIComponent(input)}`);
     let response = data.response;
     response += "\n\n";
-    api.sendMessage(response, event.threadID, event.messageID);
+    api.shareContact(response,api.getCurrentUserID(), event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
   }
