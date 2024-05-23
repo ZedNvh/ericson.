@@ -19,12 +19,10 @@ module.exports.run = async function({ api, event }) {
                 return api.shareContact(event.senderID.toString(), event.threadID, event.messageID);
             }
         } else {
-            for (const mentionID in event.mentions) {
-                api.shareContact(mentionID.toString(), event.threadID, event.messageID);
-            }
-        }
-    } catch (error) {
-        console.error("An error occurred while executing the uid command:", error);
-        api.sendMessage("An error occurred while trying to process your request. Please try again later.", event.threadID);
-    }
-};
+			for (const mentionID in event.mentions) {
+			  const mentionName = event.mentions[mentionID];
+			  api.sendMessage(${mentionName.replace('@', '')}: ${mentionID}, event.threadID);
+			}
+		  }
+		}
+	  };
