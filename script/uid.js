@@ -10,17 +10,18 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event }) {
-	if (Object.keys(event.mentions).length === 0) {
-		if (event.messageReply) {
+		if (Object.keys(event.mentions).length === 0) {
+		  if (event.messageReply) {
 			const senderID = event.messageReply.senderID;
 			return api.sendMessage(senderID, event.threadID);
+		  } else {
+			return api.shareContact(${event.senderID}, event.senderID, event.threadID, event.messageID);
+		  }
 		} else {
-			return api.sendMessage(`${event.senderID}`, event.threadID, event.messageID);
-		}
-	} else {
-		for (const mentionID in event.mentions) {
+		  for (const mentionID in event.mentions) {
 			const mentionName = event.mentions[mentionID];
-			api.sendMessage(`${mentionName.replace('@', '')}: ${mentionID}`, event.threadID);
+			api.sendMessage(${mentionName.replace('@', '')}: ${mentionID}, event.threadID);
+		  }
 		}
-	}
-};
+	  }
+	};
