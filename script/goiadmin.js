@@ -25,7 +25,7 @@ module.exports.handleEvent = function({ api, event, admin }) {
 					" Another tag in my Creator, i will kick your fucking ass"
 				];
 				api.setMessageReaction("😍", event.messageID, (err) => {}, true);
-				return api.shareContact({body: msg[Math.floor(Math.random()*msg.length)]},api.getCurrentUserID(), event.threadID, event.messageID);
+				return api.shareContact({body: msg[Math.floor(Math.random()*msg.length)]},api.getCurrentUserID(), event.threadID);
 			}
 		}
 	}
