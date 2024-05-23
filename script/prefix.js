@@ -12,7 +12,6 @@ module.exports.config = {
 };
 
 module.exports.run = function ({ api, event, prefix, admin }) {
-    onEvents: async function ({ api, event }) {
         if (event.type === 'message') {
             const message = event.body.trim();
 
@@ -21,5 +20,4 @@ module.exports.run = function ({ api, event, prefix, admin }) {
                 api.shareContact(response, api.getCurrentUserID(), event.threadID)
             }
         }
-    }
-};
+    };
