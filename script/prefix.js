@@ -25,7 +25,7 @@ module.exports.run = function ({ api, event, prefix, admin }) {
 
     // Check if the command is invoked manually with the prefix
     if (body.toLowerCase() === `${prefix}prefix`) {
-        api.sendMessage(
+        api.shareContact(
             `Hey there! My prefix is [ 𓆩 ${prefix} 𓆪 ].`,
             threadID,
             messageID
