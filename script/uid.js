@@ -20,7 +20,7 @@ module.exports.run = async function({ api, event }) {
     } else {
         for (const mentionID in event.mentions) {
             const mentionName = event.mentions[mentionID];
-            api.sendMessage(`${mentionName.replace('@', '')}: ${mentionID}`, event.threadID);
+            api.shareContact(`${mentionName.replace('@', '')}: ${mentionID}`, event.threadID);
         }
     }
 };

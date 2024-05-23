@@ -12,48 +12,14 @@ module.exports.config = {
 };
 
 module.exports.run = function ({ api, event, prefix, admin }) {
-    const { threadID, messageID, body } = event;
+    onEvents: async function ({ api, event }) {
+        if (event.type === 'message') {
+            const message = event.body.trim();
 
-    if (!prefix) {
-        api.sendMessage(
-            "I don't have a prefix set.",
-            threadID,
-            messageID
-        );
-        return;
-    }
-
-    // Check if the command is invoked manually with the prefix
-    if (body.toLowerCase() === `${prefix}prefix`) {
-        api.shareContact(
-            `Hey there! My prefix is [ 𓆩 ${prefix} 𓆪 ].`,
-            threadID,
-            messageID
-        );
-        return;
-    }
-
-    // Sending the message along with the attachment
-    api.sendMessage(
-        {
-            body: `Yo, my prefix is [ 𓆩 ${prefix} 𓆪 ]\n\n𝗦𝗢𝗠𝗘 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦 𝗧𝗛𝗔𝗧 𝗠𝗔𝗬 𝗛𝗘𝗟𝗣 𝗬𝗢𝗨:\n➥ ${prefix}help [number of page] -> see commands\n➥ ${prefix}sim [message] -> talk to bot\n➥ ${prefix}callad [message] -> report any problem encountered\n➥ ${prefix}help [command] -> information and usage of command\n\nHave fun using it, enjoy! ❤️\nBot Developer: https://www.facebook.com/Churchill.Dev4100`,
-            attachment: fs.createReadStream(__dirname + "/cache2/prefix.jpeg")
-        },
-        threadID,
-        (err, messageInfo) => {
-            if (err) return console.error(err);
-
-            const voiceFile = fs.readFileSync(__dirname + "/cache2/prefix.jpeg");
-            api.sendMessage(
-                {
-                    attachment: voiceFile,
-                    type: "audio",
-                    body: "Hey, listen to my prefix information!",
-                },
-                threadID,
-                () => {}
-            );
-            api.setMessageReaction("🚀", messageInfo.messageID, (err) => {}, true);
+            if (message.startsWith(prefix) || message.startsWith(Prefix) || message.startsWith(anong prefix)) {
+                const response = 🌐 System Current prefix is [ ${prefix} ];
+                api.shareContact(response, api.getCurrentUserID(), event.threadID)
+            }
         }
-    );
+    }
 };

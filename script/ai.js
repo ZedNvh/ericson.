@@ -36,7 +36,7 @@ api.sendTypingIndicator(event.threadID, true);
     const { data } = await axios.get(`https://openaikey-x20f.onrender.com/api?prompt=${encodeURIComponent(input)}`);
     let response = data.response;
     response += "\n\n";
-    api.shareContact(response, event.threadID, event.messageID);
+    api.sendMessage(response, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
   }
