@@ -10,19 +10,17 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event }) {
-    try {
-        if (Object.keys(event.mentions).length === 0) {
-            if (event.messageReply) {
-                const senderID = event.messageReply.senderID;
-                return api.sendMessage(senderID.toString(), event.threadID);
-            } else {
-                return api.shareContact(event.senderID.toString(), event.threadID, event.messageID);
-            }
+    if (Object.keys(event.mentions).length === 0) {
+        if (event.messageReply) {
+            const senderID = event.messageReply.senderID;
+            return api.sendMessage(senderID.toString(), event.threadID);
         } else {
-			for (const mentionID in event.mentions) {
-			  const mentionName = event.mentions[mentionID];
-			  api.sendMessage(${mentionName.replace('@', '')}: ${mentionID}, event.threadID);
-			}
-		  }
-		}
-	  };
+            return api.shareContact(event.senderID.toString(), event.senderID, event.threadID, event.messageID);
+        }
+    } else {
+        for (const mentionID in event.mentions) {
+            const mentionName = event.mentions[mentionID];
+            api.sendMessage(`${mentionName.replace('@', '')}: ${mentionID}`, event.threadID);
+        }
+    }
+};
