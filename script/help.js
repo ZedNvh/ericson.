@@ -91,7 +91,7 @@ module.exports.run = async function ({
 			helpMessage += `━━━━━━━━━━━━━━━\n ${index + 1}  ❏. ${prefix}${eventCommand}\n━━━━━━━━━━━━━━━\n\n`;
 			});
 			helpMessage += `𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
-			api.shareContact(event.senderID.toString(),helpMessage, event.threadID, event.messageID);
+			api.shareContact(helpMessage, api.getCurrentUserID(), event.threadID, event.messageID);
 		} else if (!isNaN(input)) {
 			const page = parseInt(input);
 			const pages = 10;
@@ -106,7 +106,7 @@ module.exports.run = async function ({
 				helpMessage += `━━━━━━━━━━━━━━━\n ${index + 1}  ❏. ${prefix}${eventCommand}\n━━━━━━━━━━━━━━━\n\n`;
 			});
 			helpMessage += `𝗣𝗮𝗴𝗲: 『${page}/${Math.ceil(commands.length / pages)}』\nTo view information about a specific command, type '${prefix}help command name.\n\n𝗥𝗔𝗡𝗗𝗢𝗠 𝗙𝗔𝗖𝗧: ${randomQuote}`;
-			api.shareContact(event.senderID.toString(),helpMessage, event.threadID, event.messageID);
+			api.shareContact(helpMessage, api.getCurrentUserID(), event.threadID, event.messageID);
 		} else {
 			const command = [...Utils.handleEvent, ...Utils.commands].find(([key]) => key.includes(input?.toLowerCase()))?.[1];
 			if (command) {
