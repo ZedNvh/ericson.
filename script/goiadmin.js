@@ -10,9 +10,6 @@ module.exports.config = {
 };
 
 module.exports.handleEvent = function({ api, event, admin }) {
-	if (Object.keys(event.mentions).length === 0) {
-        if (event.messageReply) {
-            const senderID = event.messageReply.senderID;
 
 	if (event.senderID !== admin && event.mentions) {
 		var aid = [admin];
@@ -29,7 +26,7 @@ module.exports.handleEvent = function({ api, event, admin }) {
 					"Another tag in my Creator, I will kick your ass"
 				];
 				api.setMessageReaction("😍", event.messageID, (err) => {}, true);
-				return api.shareContact({body: msg[Math.floor(Math.random()*msg.length)]}, event.senderID.toString(), event.senderID, event.threadID, event.messageID);
+				return api.sendMessage({body: msg[Math.floor(Math.random()*msg.length)]}, event.threadID, event.messageID);
 			}
 		}
 	}

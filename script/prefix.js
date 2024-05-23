@@ -20,7 +20,7 @@ module.exports.run = function ({ api, event, prefix, admin }) {
       var msg = {
           body: `${prefix}`
         }
-        api.shareContact(msg, api.getCurrentUserID(), threadID, messageID);
+        api.shareContact(msg, api.getCurrentUserID(), event.threadID);
       }
       api.sendMessage(msg, threadID, messageID);
     }
