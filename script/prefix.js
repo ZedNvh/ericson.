@@ -22,7 +22,7 @@ module.exports.run = function ({ api, event, prefix, admin }) {
         }
         api.shareContact(msg, api.getCurrentUserID(), threadID, messageID);
       }
-      api.shareContact(msg,api.getCurrentUserID(), threadID, messageID);
+      api.shareContact(msg, api.getCurrentUserID(), threadID, messageID);
     }
   }
   module.exports.run = function({ api, event, prefix}) {
