@@ -100,7 +100,7 @@ label {
     min-height: 150px;
     padding: 10px;
     box-sizing: border-box;
-    border: 1px solid #ea00ff;
+    border: 1px solid #178fdf;
     border-radius: 5px;
     resize: none;
 }
@@ -234,12 +234,12 @@ video {
 
 @keyframes neon-border {
     from {
-        border-color: #ff0000;
-        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+        border-color: #0080ff;
+        box-shadow: 0 0 10px #00c8ff, 0 0 20px #00a2ff, 0 0 30px #0080ff;
     }
     to {
-        border-color: #00ff00;
-        box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+        border-color: #0da2ff;
+        box-shadow: 0 0 20px #2ec0ff, 0 0 40px #4891ff, 0 0 60px #44f3ff;
     }
 }
 
