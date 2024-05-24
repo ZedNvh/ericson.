@@ -5,56 +5,81 @@ module.exports.config = {
   role: 0,
   hasPrefix: true,
   aliases: ['play'],
-  usage: 'Music [promt]',
-  description: 'Search music in youtube',
-  credits: 'Deveploper',
+  usage: 'Music [prompt]',
+  description: 'Search music on YouTube',
+  credits: 'Developer',
   cooldown: 5
 };
-module.exports.run = async function({
-  api,
-  event,
-  args
-}) {
+
+module.exports.run = async function({ api, event, args }) {
+  const axios = require("axios");
   const fs = require("fs-extra");
   const ytdl = require("ytdl-core");
+  const request = require("request");
   const yts = require("yt-search");
-  const musicName = args.join(' ');
-  if (!musicName) {
-    api.sendMessage(`To get started, type music and the title of the song you want.`, event.threadID, event.messageID);
-    return;
+
+  const input = event.body;
+  const text = input.substring(12);
+  const data = input.split(" ");
+
+  if (data.length < 2) {
+    return api.sendMessage("Please enter the music title", event.threadID);
   }
+
+  data.shift();
+  const song = data.join(" ");
+
   try {
-    api.sendMessage(`Searching for "${musicName}"...`, event.threadID, event.messageID);
-    const searchResults = await yts(musicName);
+    const findingMessage = await api.sendMessage(`Finding "${song}". Please wait...`, event.threadID);
+
+    const searchResults = await yts(song);
     if (!searchResults.videos.length) {
-      return api.sendMessage("Can't find the search.", event.threadID, event.messageID);
-    } else {
-      const music = searchResults.videos[0];
-      const musicUrl = music.url;
-      const stream = ytdl(musicUrl, {
-        filter: "audioonly"
-      });
-      const time = new Date();
-      const timestamp = time.toISOString().replace(/[:.]/g, "-");
-      const filePath = path.join(__dirname, 'cache', `${timestamp}_music.mp3`);
-      stream.pipe(fs.createWriteStream(filePath));
-      stream.on('response', () => {});
-      stream.on('info', (info) => {});
-      stream.on('end', () => {
-        if (fs.statSync(filePath).size > 26214400) {
-          fs.unlinkSync(filePath);
-          return api.sendMessage('The file could not be sent because it is larger than 25MB.', event.threadID);
-        }
-        const message = {
-          body: `${music.title}`,
-          attachment: fs.createReadStream(filePath)
-        };
-        api.sendMessage(message, event.threadID, () => {
-          fs.unlinkSync(filePath);
-        }, event.messageID);
-      });
+      await api.unsendMessage(findingMessage.messageID);
+      return api.sendMessage("Error: Invalid request.", event.threadID);
     }
+
+    const video = searchResults.videos[0];
+    const videoUrl = video.url;
+
+    const stream = ytdl(videoUrl, { filter: "audioonly" });
+
+    const fileName = `${event.senderID}.mp3`;
+    const filePath = path.join(__dirname, "cache", fileName);
+
+    stream.pipe(fs.createWriteStream(filePath));
+
+    stream.on('response', async () => {
+      console.info('[DOWNLOADER]', 'Starting download now!');
+
+      const tinyUrlResponse = await axios.get(`https://jonellccapisprojectv2-a62001f39859.herokuapp.com/api/tinyurl?url=${videoUrl}`);
+      const shortenedUrl = tinyUrlResponse.data.shortenedUrl;
+
+      const messageBody = `Here's your music, enjoy!\nArtist: ${video.author.name}\nYouTube Link: ${shortenedUrl}`;
+
+      const message = {
+        body: messageBody,
+        attachment: fs.createReadStream(filePath)
+      };
+
+      api.sendMessage(message, event.threadID);
+    });
+
+    stream.on('info', (info) => {
+      console.info('[DOWNLOADER]', `Downloading ${info.videoDetails.title} by ${info.videoDetails.author.name}`);
+    });
+
+    stream.on('end', () => {
+      console.info('[DOWNLOADER] Downloaded');
+
+      if (fs.statSync(filePath).size > 30 * 1024 * 1024) {
+        fs.unlinkSync(filePath);
+        return api.sendMessage('[ERR] The file could not be sent because it is larger than 30MB.', event.threadID);
+      }
+
+      api.unsendMessage(findingMessage.messageID);
+    });
   } catch (error) {
-    api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
+    console.error('[ERROR]', error);
+    api.sendMessage('An error occurred while processing the command.', event.threadID);
   }
 };
