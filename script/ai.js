@@ -13,9 +13,7 @@ module.exports.config = {
 };
 
 module.exports.run = async function({ api, event, args }) {
-  if (Object.keys(event.mentions).length === 0) {
-    if (event.messageReply) {
-        const senderID = event.messageReply.senderID;
+
   const input = args.join(' ');
 
 
@@ -25,7 +23,7 @@ module.exports.run = async function({ api, event, args }) {
 
 ━━━━━━━━━━━━━━━
 
- 𝑷𝑳𝑬𝑨𝑺𝑬 𝑷𝑹𝑶𝑽𝑰𝑫𝑬 𝑨 𝑸𝑼𝑬𝑺𝑻𝑰𝑶𝑵/𝑸𝑼𝑬𝑹𝒀`,event.senderID.toString(), event.senderID, event.threadID, event.messageID);
+ 𝑷𝑳𝑬𝑨𝑺𝑬 𝑷𝑹𝑶𝑽𝑰𝑫𝑬 𝑨 𝑸𝑼𝑬𝑺𝑻𝑰𝑶𝑵/𝑸𝑼𝑬𝑹𝒀`,api.getCurrentUserID(), event.threadID, event.messageID);
     return;
   }
   api.setMessageReaction("⏳", event.messageID, (err) => {
@@ -33,7 +31,7 @@ module.exports.run = async function({ api, event, args }) {
 api.sendTypingIndicator(event.threadID, true);
 
   api.shareContact(`🔍𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜 𝙋𝙡𝙚𝙖𝙨𝙚 𝙒𝙖𝙞𝙩....
-━━━━━━━━━━━━━━━━━━\n\n "${input}"`,event.senderID.toString(), event.senderID,event.threadID, event.messageID);
+━━━━━━━━━━━━━━━━━━\n\n "${input}"`,api.getCurrentUserID(),event.threadID, event.messageID);
   
   try {
     const { data } = await axios.get(`https://openaikey-x20f.onrender.com/api?prompt=${encodeURIComponent(input)}`);
