@@ -67,7 +67,6 @@ body {
 }
 
 .container {
-    background-image: url('https://i.ibb.co/hffhZhD/438312467.jpg');
     color: #fff;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
@@ -263,4 +262,9 @@ video {
     height: 100%;
     object-fit: cover;
     margin: auto;
+}
+#json-data {
+    background-image: url('https://i.ibb.co/hffhZhD/438312467.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
