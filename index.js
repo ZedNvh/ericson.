@@ -775,7 +775,7 @@ const yawa = lubot[Math.floor(Math.random() * lubot.length)];
 						}
 					}
 					if (event.body && !command && event.body?.toLowerCase().startsWith(prefix.toLowerCase())) {
-						api.shareContact(`╭┈ ❒ [ ${{prefix}} ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰┈➤ 𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝗇𝗈𝗍 𝖿𝗈𝗎𝗇𝖽\n╰┈➤ 𝖴𝗌𝖾 !𝘩𝘦𝘭𝘱 𝗍𝗈 𝗏𝗂𝖾𝗐 𝖺𝗅𝗅 𝖼𝗈𝗆𝗆𝖺𝗇𝖽𝗌.`,api.getCurrentUserID(), event.threadID, event.messageID);
+						api.shareContact(`╭┈ ❒ [ ${prefix} ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰┈➤ 𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝗇𝗈𝗍 𝖿𝗈𝗎𝗇𝖽\n╰┈➤ 𝖴𝗌𝖾 !𝘩𝘦𝘭𝘱 𝗍𝗈 𝗏𝗂𝖾𝗐 𝖺𝗅𝗅 𝖼𝗈𝗆𝗆𝖺𝗇𝖽𝗌.`,api.getCurrentUserID(), event.threadID, event.messageID);
 						return;
 					}
 if (event.body && !command && event.body?.toLowerCase().startsWith(prefix.toLowerCase())) {

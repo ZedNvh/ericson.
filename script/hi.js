@@ -13,7 +13,7 @@ module.exports.run = async function({ api, event }) {
     if (Object.keys(event.mentions).length === 0) {
         if (event.messageReply) {
             const senderID = event.messageReply.senderID;
-            return api.sendMessage("Hi bro, how can i help you?", event.threadID);
+            return api.shareContact("Hi bro, how can i help you?",event.senderID, event.threadID);
         } else {
             return api.shareContact("Hi bro, how can i help you?", event.senderID, event.threadID, event.messageID);
         }
