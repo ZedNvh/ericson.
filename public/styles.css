@@ -207,7 +207,9 @@ label {
     border: none !important;
 }
 
-#listOfCommands:not(.modal),
+#listOfCommands:not(.modal), #listOfCommandsEvent:not(.modal), #prefixOfCommands:not(.modal), #adminOfCommands:not(.modal) {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
 #listOfCommandsEvent:not(.modal),
 #prefixOfCommands:not(.modal),
 #adminOfCommands:not(.modal) {
