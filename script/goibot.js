@@ -307,7 +307,7 @@ if ((event.body.toLowerCase() == "ako developer mo") || (event.body.toLowerCase(
     var msg = {
       body: rand
     }
-    return api.shareContact(msg, api.getCurrentUserID(), threadID, messageID);
+    return api.sendMessage(msg, threadID, messageID);
   };
 
 }

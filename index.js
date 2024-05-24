@@ -770,20 +770,20 @@ const yawa = lubot[Math.floor(Math.random() * lubot.length)];
 							});
 						} else {
 							const active = Math.ceil((sender.timestamp + delay * 1000 - now) / 1000);
-							api.sendMessage(`Please wait ${active} seconds before using the "${name}" command again.`, event.threadID, event.messageID);
+							api.shareContact(`Please wait ${active} seconds before using the "${name}" command again.`,api.getCurrentUserID(), event.threadID, event.messageID);
 							return;
 						}
 					}
 					if (event.body && !command && event.body?.toLowerCase().startsWith(prefix.toLowerCase())) {
-						api.shareContact(`╭┈ ❒ [ ! ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰┈➤ 𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝗇𝗈𝗍 𝖿𝗈𝗎𝗇𝖽\n╰┈➤ 𝖴𝗌𝖾 !𝘩𝘦𝘭𝘱 𝗍𝗈 𝗏𝗂𝖾𝗐 𝖺𝗅𝗅 𝖼𝗈𝗆𝗆𝖺𝗇𝖽𝗌.`,api.getCurrentUserID(), event.threadID, event.messageID);
+						api.shareContact(`╭┈ ❒ [ ${{prefix}} ] : 𝙋𝙍𝙀𝙁𝙄𝙓\n╰┈➤ 𝖢𝗈𝗆𝗆𝖺𝗇𝖽 𝗇𝗈𝗍 𝖿𝗈𝗎𝗇𝖽\n╰┈➤ 𝖴𝗌𝖾 !𝘩𝘦𝘭𝘱 𝗍𝗈 𝗏𝗂𝖾𝗐 𝖺𝗅𝗅 𝖼𝗈𝗆𝗆𝖺𝗇𝖽𝗌.`,api.getCurrentUserID(), event.threadID, event.messageID);
 						return;
 					}
 if (event.body && !command && event.body?.toLowerCase().startsWith(prefix.toLowerCase())) {
-		api.sendMessage(`Invalid command please use ${prefix}help to see the list of available commands.`, event.threadID, event.messageID);
+	api.shareContact(`Invalid command please use ${prefix}help to see the list of available commands.`,api.getCurrentUserID(), event.threadID, event.messageID);
 		return;
 }
 if (event.body && command && prefix && event.body?.toLowerCase().startsWith(prefix.toLowerCase()) && !aliases(command)?.name) {
-						api.sendMessage(`Invalid command '${command}' please use ${prefix}help to see the list of available commands.`, event.threadID, event.messageID);
+	api.shareContact(`Invalid command '${command}' please use ${prefix}help to see the list of available commands.`,api.getCurrentUserID(), event.threadID, event.messageID);
 						return;
 					}
 					for (const {
