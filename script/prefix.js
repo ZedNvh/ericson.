@@ -18,6 +18,6 @@ module.exports.run = async function({ api, event, args, prefix }) {
 
   
   if (!input) {
-    api.shareContact(`The prefix is [ ${prerfix} ]`,api.getCurrentUserID(), event.threadID, event.messageID);
+    api.shareContact(`The prefix is [ ${prefix} ]`,api.getCurrentUserID(), event.threadID, event.messageID);
   }
 };
