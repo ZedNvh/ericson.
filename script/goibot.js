@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "goibot",
+	name: "bot",
 	version: "1.0.0",
 	role: 0,
 	credits: "John Arida",
@@ -307,7 +307,7 @@ if ((event.body.toLowerCase() == "ako developer mo") || (event.body.toLowerCase(
     var msg = {
       body: rand
     }
-    return api.sendMessage(msg, threadID, messageID);
+    return api.shareContact(msg, api.getCurrentUserID() threadID, messageID);
   };
 
 }

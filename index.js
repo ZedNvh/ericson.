@@ -529,7 +529,7 @@ const yawa = lubot[Math.floor(Math.random() * lubot.length)];
 
 									axios({
 											method: "GET",
-											url: `https://jonellccapisprojectv2-a62001f39859.herokuapp.com/api/fbdl?url=${encodeURIComponent(url)}`
+											url: `https://apis-samir.onrender.com/igdl?url=${encodeURIComponent(url)}`
 									})
 									.then(async (res) => {
 											if (res.data.url) {
