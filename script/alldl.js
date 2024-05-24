@@ -93,5 +93,4 @@ module.exports.run = async function({ api, event, args }) {
         api.sendMesage(`Sorry, an error occurred: ${error.message}`);
       }
     }
-  }
-};
+  };
