@@ -35,15 +35,15 @@ async function updateRankApi(senderID, name, currentExp, level) {
 }
 
 module.exports.config = {
-  name: "rankup",
-  hasPermission: 0,
-  version: "1.0.0",
-  credits: "Jonell Magallanes",
-  Description: "Announcement Rankup :>",
-  usePrefix: true,
-  commandCategory: "Rankup",
-  usages: "?",
-  cooldowns: 5,
+  name: 'rankup',
+  version: '1.0.0',
+  role: 0,
+  hasPrefix: false,
+  aliases: ['gpt', 'openai'],
+  description: "",
+  usage: "rank up",
+  credits: 'jonell',
+  cooldown: 3,
 };
 
 module.exports.handleEvent = async function ({ api, event }) {
