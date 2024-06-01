@@ -1,14 +1,14 @@
 const axios = require('axios');
 
 module.exports.config = {
-  name: 'ai2',
+  name: 'ai',
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
   aliases: ['gpt', 'openai'],
   description: "An AI command powered by GPT-4",
   usage: "Ai [promot]",
-  credits: 'Shiki machina (Api)',
+  credits: 'Developer',
   cooldown: 3,
 };
 
@@ -19,7 +19,7 @@ module.exports.run = async function({ api, event, args }) {
 
   
   if (!input) {
-    api.shareContact(`𝑯𝑬𝑳𝑳𝑶 𝑰𝑴 GPT4 (Api shiki machina)
+    api.shareContact(`𝑯𝑬𝑳𝑳𝑶 𝑰𝑴 𝑨𝑰 
 
 ━━━━━━━━━━━━━━━
 
@@ -35,7 +35,7 @@ api.sendTypingIndicator(event.threadID, true);
   
   try {
     const { data } = await axios.get(`https://gpt4o.onrender.com/gpt4o?question=${encodeURIComponent(input)}`);
-    let response = data.response;
+    let response = response.data;
     response += "\n\n";
     api.shareContact(response,api.getCurrentUserID(), event.threadID, event.messageID);
   } catch (error) {
